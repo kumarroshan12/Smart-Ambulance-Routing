@@ -1,0 +1,9 @@
+
+C:\Users\ROSHAN KUMAR>D:
+
+D:\>cd adv mobile
+
+D:\adv mobile>python -m venv smart_ambulance_env
+
+D:\adv mobile>smart_ambulance_env\Scripts\activate
+streamlit run main.py
