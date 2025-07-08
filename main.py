@@ -66,3 +66,29 @@ def draw_map(start, end, route, reason, traffic_light_position, traffic_light_st
     folium.Marker(ambulance_position, tooltip="🚑 Ambulance", icon=folium.Icon(color="blue")).add_to(m)
 
     return m
+# ---------------- Streamlit UI -------------------
+st.set_page_config("Smart Ambulance Routing with V2X", layout="wide")
+st.title("🚑 Smart Ambulance Routing with V2X Communication")
+
+# Create tabs for the Ambulance and Hospital views
+tabs = st.radio("Select View", ("Ambulance", "Hospital"))
+
+if tabs == "Ambulance":
+    # ---------------- Sidebar Configuration -------------------
+    with st.sidebar:
+        st.header("Simulation Settings")
+        ambulance_spots = {
+            "SRM Tech Park": (12.8251, 80.0460),
+            "Medical Hostel": (12.8235, 80.0434),
+            "Gate 1": (12.8232, 80.0445)
+        }
+        hospital_spots = {
+            "SRM Hospital": (12.8199, 80.0382),
+            "Chengalpattu GH": (12.6927, 79.9706)
+        }
+
+        amb_point = st.selectbox("Ambulance Location", list(ambulance_spots.keys()))
+        hos_point = st.selectbox("Hospital Destination", list(hospital_spots.keys()))
+        emergency_level = st.radio("Emergency Severity", ["Critical", "Moderate"])
+        net_type = st.radio("Network Type", ["5G", "4G/LTE"])
+        run = st.button("Run Smart Routing Simulation")
