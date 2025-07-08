@@ -29,3 +29,20 @@ SLICES = {
         "use_case": "IoT health monitoring, sensor data upload"
     }
 }
+
+# ---------------- Traffic Light Function (for V2I Communication) -------------------
+def update_traffic_lights(ambulance_position, traffic_light_position):
+    distance = geodesic(ambulance_position, traffic_light_position).meters
+    if distance < 500:  # If the ambulance is within 500 meters of the traffic light, make it green earlier
+        return "Green"
+    return "Red"
+
+# ---------------- Simulate Real-Time Patient Data -------------------
+def generate_patient_data():
+    # Simulating patient health data
+    return {
+        "Heart Rate (BPM)": random.randint(80, 130),
+        "Blood Oxygen Level (%)": random.randint(90, 100),
+        "Snoring Rate (dB)": random.randint(30, 60),
+        "Temperature (°C)": round(random.uniform(36.0, 38.0), 1)
+    }
