@@ -173,6 +173,7 @@ if tabs == "Ambulance":
 
     st.caption("Prototype simulation developed by Roshan Chaudhary for advanced 5G network applications in smart healthcare.")
 
+
 elif tabs == "Hospital":
     # Hospital view: Real-time patient data
     st.title("🏥 Hospital Emergency Unit")
